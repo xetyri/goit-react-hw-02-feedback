@@ -1,0 +1,12 @@
+.FeedbackOptions {
+  margin: 0px 5px;
+  background: saddlebrown;
+  color: antiquewhite;
+  border: 0;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 5px 8px;
+}
+.FeedbackOptions:hover {
+  background: rgb(175, 102, 50);
+}

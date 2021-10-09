@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
+import s from "./FeedbackOptions.module.css";
 
 class FeedbackOptions extends Component{   
     render() {
@@ -10,6 +11,7 @@ class FeedbackOptions extends Component{
                     key={stat}
                     name={stat}
                     type="button"
+                    className={s.FeedbackOptions}
                     onClick={()=>this.props.LeaveFeedback(stat)}
                 >{stat[0].toUpperCase() + stat.slice(1)}</button>
             ))}

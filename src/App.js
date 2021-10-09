@@ -1,6 +1,9 @@
 import { Component } from "react";
 import Feedback from "./components/FeedbackOptions";
 import Statistic from "./components/Statistics";
+import Notification from "./components/Notification";
+import Section from "./components/Section";
+import Container from "./components/Container";
 
 class App extends Component {
   state = {
@@ -30,20 +33,27 @@ class App extends Component {
       good > 0 ? Math.round((good / onTotalFeedbackCount) * 100) : 0;
 
     return (
-      <div>
-        <Feedback
-          options={["good", "neutral", "bad"]}
-          LeaveFeedback={this.onLeaveFeedback}
-        />
-
-        <Statistic
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          onTotalFeedbackCount={onTotalFeedbackCount}
-          onPositivePercentageCount={onPositivePercentageCount}
-        />
-      </div>
+      <Section>
+        <Container title="Please Leave FeedBack">
+          <Feedback
+            options={["good", "neutral", "bad"]}
+            LeaveFeedback={this.onLeaveFeedback}
+          />
+        </Container>
+        <Container title={onTotalFeedbackCount ? "Statistics:" : ""}>
+          {onTotalFeedbackCount === 0 ? (
+            <Notification />
+          ) : (
+            <Statistic
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              onTotalFeedbackCount={onTotalFeedbackCount}
+              onPositivePercentageCount={onPositivePercentageCount}
+            />
+          )}
+        </Container>
+      </Section>
     );
   }
 }
